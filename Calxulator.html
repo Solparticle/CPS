@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        * {
+            font-family: 'Crimson Text', serif;
+        }
+        .calculator {
+            width: 90%;
+            height: 550px;
+            background: #099bff;
+            margin: 5%;
+            display: flex;
+            border-radius: 30px;
+            flex-direction: column;
+        }
+        #result {
+            width: 90%;
+            height: 170px;
+            margin: 5%;
+            background: white;
+            border-radius: 30px;
+            font-size: 45px;
+            text-align: right;
+            border: 0px;
+        }
+        .buttons {
+            width: 90%;
+            height: 370px;
+            margin: 5%;
+            background: transparent;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            border: 0px solid black;
+            border-radius: 30px;
+        }
+        button {
+            width: 50px;
+            height: 50px;
+            background: white;
+            margin: 8px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: 0px solid black;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="result" readonly>
+        <div class="buttons">
+            <button onclick="clearResult()">C</button>
+            <button onclick="deleteChar()">&larr;</button>
+            <button onclick="appendChar('/')">/</button>
+            <button onclick="appendChar('*')">*</button>
+            <button onclick="appendChar('7')">7</button>
+            <button onclick="appendChar('8')">8</button>
+            <button onclick="appendChar('9')">9</button>
+            <button onclick="appendChar('-')">-</button>
+            <button onclick="appendChar('4')">4</button>
+            <button onclick="appendChar('5')">5</button>
+            <button onclick="appendChar('6')">6</button>
+            <button onclick="appendChar('+')">+</button>
+            <button onclick="appendChar('1')">1</button>
+            <button onclick="appendChar('2')">2</button>
+            <button onclick="appendChar('3')">3</button>
+            <button onclick="appendChar('.')">.</button>
+            <button onclick="appendChar('0')">0</button>
+            <button onclick="calculateResult()">=</button>
+        </div>
+    </div>
+
+    <h3 style="text-align: center;">@Codepiles</h3>
+
+    <script type="text/javascript" charset="utf-8">
+        let result = document.getElementById('result');
+
+        function appendChar(char) {
+            result.value += char;
+        }
+
+        function clearResult() {
+            result.value = '';
+        }
+
+        function deleteChar() {
+            result.value = result.value.slice(0, -1);
+        }
+
+        function calculateResult() {
+            try {
+                result.value = eval(result.value);
+            } catch (error) {
+                result.value = 'Error';
+            }
+        }
+    </script>
+
+</body>
+</html>
