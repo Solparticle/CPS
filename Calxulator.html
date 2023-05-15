@@ -54,6 +54,7 @@
             border-radius: 5px;
         }
     </style>
+    <script defer src = "calculator.js">
 </head>
 <body>
     <div class="calculator">
@@ -82,29 +83,8 @@
 
     <h3 style="text-align: center;">@Codepiles</h3>
 
-    <script type="text/javascript" charset="utf-8">
-        let result = document.getElementById('result');
+    
 
-        function appendChar(char) {
-            result.value += char;
-        }
-
-        function clearResult() {
-            result.value = '';
-        }
-
-        function deleteChar() {
-            result.value = result.value.slice(0, -1);
-        }
-
-        function calculateResult() {
-            try {
-                result.value = eval(result.value);
-            } catch (error) {
-                result.value = 'Error';
-            }
-        }
-    </script>
 
 </body>
 </html>
